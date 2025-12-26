@@ -7,7 +7,7 @@ export const metadata = {
 };
 
 export default async function RootLayout({ children }) {
-  const response = await fetch('http://localhost:9999/topics');
+  const response = await fetch('http://localhost:9999/topics', {cache: "no-store"}); // 또는 2번쨰 인자값으로 {next:{revaliate:0}}
   const topics = await response.json();
   return (
     <html>
